@@ -3,5 +3,9 @@
 }
 .nav-link {
   color: #ffffff !important;
-  font-weight: bold !important;
+  font-weight: 300 !important;
+}
+.story {
+  height: fit-content;
+  width: fit-content;
 }
