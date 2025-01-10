@@ -1,0 +1,267 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #d2beeb;
+}
+.logo {
+  font-size: 60px;
+  font-weight: bold;
+  color: #fff;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+  padding: 0;
+}
+.nav-links li {
+  display: inline;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+}
+.nav-links li:not(:last-child)::after {
+  content: "|";
+  margin-left: 100px;
+  color: #fff;
+}
+.contact-button {
+  background-color: #ab8cc5;
+  color: #fff;
+  border: 0;
+  padding: 15px 35px;
+  border-radius: 25px;
+  font-size: 20px;
+}
+.contact-button:hover {
+  background-color: #9c7cb5;
+}
+.about-me {
+  margin-top: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-header {
+  font-size: 40px;
+  font-weight: bold;
+  border: 3px solid #898db3;
+  border-radius: 50px;
+  padding: 15px 145px;
+  color: #898db3;
+  margin-bottom: 50px;
+}
+.about-content {
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  align-self: stretch;
+  background-color: #fff;
+  padding-left: 165px;
+}
+.profile-image img {
+  width: 100%;
+  height: 580px;
+  object-fit: cover;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+h1 {
+  font-size: 50px;
+  margin-bottom: -50px;
+}
+p {
+  font-size: 25px;
+  margin: 0;
+}
+.education h2,
+.softwares h2 {
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+.softwares-icon {
+  display: flex;
+  gap: 10px;
+}
+.icon img {
+  width: 100%;
+  height: 80px;
+}
+.gaming {
+  margin-top: 215px;
+  text-align: center;
+  position: relative;
+}
+.game-header {
+  font-size: 40px;
+  font-weight: bold;
+  color: #898db3;
+  border: 3px solid #898db3;
+  border-radius: 50px;
+  display: inline-block;
+  padding: 15px 145px;
+  margin-bottom: 50px;
+}
+.content {
+  background-color: #ebdcfa;
+  padding: 75px 95px;
+}
+.title {
+  font-size: 100px;
+  font-family: serif;
+  font-weight: bold;
+  color: #898db3;
+  margin-bottom: 80px;
+}
+.image-groups {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+}
+.image-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 110px;
+  margin-top: 80px;
+}
+.main-image img {
+  width: 750px;
+  height: auto;
+}
+.character img {
+  width: 225px;
+  height: auto;
+}
+.cat {
+  position: absolute;
+  left: 30%;
+  bottom: 500px;
+  transform: translateX(-50%);
+}
+.cat img {
+  width: 300px;
+  height: auto;
+}
+.illustration {
+  text-align: center;
+  margin-top: 100px;
+}
+.illust-header {
+  font-size: 40px;
+  font-weight: bold;
+  color: #898db3;
+  border: 3px solid #898db3;
+  border-radius: 50px;
+  display: inline-block;
+  padding: 15px 145px;
+  margin-bottom: 50px;
+}
+.illust-title {
+  font-size: 100px;
+  font-family: serif;
+  font-weight: bold;
+  color: #898db3;
+  margin-bottom: 80px;
+}
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+.card {
+  background-color: #ebdcfa;
+  border-radius: 0 0 233px 233px;
+  padding: 50px 25px;
+  width: 347px;
+  text-align: center;
+  position: relative;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 10%;
+  width: 80%;
+  height: 5px; /* 線條高度 */
+  background-color: #898db3;
+}
+.card img {
+  width: 100%;
+}
+.card p {
+  font-size: 30px;
+  color: #898db5;
+  margin: 0 0 40px 0;
+}
+.card button {
+  background-color: #fff;
+  color: #898db3;
+  border: none;
+  border-radius: 35px;
+  padding: 15px 30px;
+  font-size: 20px;
+}
+.card button:hover {
+  background-color: #d2beeb;
+  color: #fff;
+}
+.footer {
+  margin-top: 410px;
+  margin-bottom: 90px;
+  text-align: center;
+}
+.footer-line {
+  width: 80%;
+  height: 3px;
+  background-color: #9e81bb;
+  margin: 40px auto;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  gap: 130px;
+}
+.footer-content p {
+  margin: 0;
+  font-size: 20px;
+}
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 125px;
+}
+.footer-nav a {
+  text-decoration: none;
+  color: #000;
+}
+.footer2 {
+  display: flex;
+  flex-direction: row;
+  margin-top: 90px;
+  justify-content: space-between;
+  padding: 0 150px;
+  align-items: end;
+}
+.footer-logo p {
+  font-size: 60px;
+  color: #9e81bb;
+  font-weight: bold;
+}
