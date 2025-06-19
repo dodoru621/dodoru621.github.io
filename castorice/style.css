@@ -193,7 +193,7 @@ main {
 .hero-section {
   position: relative;
   height: 90vh; /* 設定高度為視窗高度的 90% */
-  background-image: url("image/main_photo.png"); /* 你的大圖背景圖片路徑 */
+  background-image: url("../image/main_photo.png"); /* 你的大圖背景圖片路徑 */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -487,7 +487,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("image/last_bgc.png");
+  background-image: url("../image/last_bgc.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
