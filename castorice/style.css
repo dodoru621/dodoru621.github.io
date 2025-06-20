@@ -1,0 +1,1391 @@
+/* style.css */
+
+/* 基本重置，消除瀏覽器默認的一些內外外邊距 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth; /* 添加這一行 */
+}
+/* 設定整個網頁的字體和背景顏色 */
+body {
+  font-family: "Montserrat", sans-serif; /* 使用 Montserrat 字體，如果載入失敗則使用通用字體 */
+  background-color: #1c2a50; /* 你提供的主要背景顏色 */
+  color: #fff; /* 預設文字顏色為白色，方便在深色背景上顯示 */
+  line-height: 1.6; /* 增加行高，提升閱讀性 */
+  overflow-x: hidden; /* 防止水平滾動條出現 */
+}
+
+/* 確保圖片不超出父容器 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* 消除圖片底部的小間隙 */
+}
+
+/* 鏈接的默認樣式 */
+a {
+  color: inherit; /* 鏈接顏色繼承父元素，通常為白色 */
+  text-decoration: none; /* 消除下劃線 */
+}
+
+a:hover {
+  opacity: 0.8; /* 鼠標懸停時稍微變暗 */
+}
+
+/* 列表樣式 */
+ul {
+  list-style: none; /* 消除列表項目符號 */
+}
+
+/* 導覽列樣式 */
+.navbar {
+  display: flex; /* 使用 Flexbox 佈局，讓子元素水平排列 */
+  justify-content: flex-start; /* 調整 justify-content，讓項目靠左對齊 */
+  align-items: center;
+  padding: 15px 5%; /* 上下內邊距 15px，左右內邊距 5% */
+  background-color: rgba(28, 42, 80, 0.8); /* 半透明的背景色，與主題色搭配 */
+  position: fixed; /* 固定在視窗頂部 */
+  width: 100%; /* 寬度佔滿整個視窗 */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* 確保導覽列在其他內容之上 */
+  backdrop-filter: blur(5px); /* 添加毛玻璃效果，讓背景稍微模糊 */
+  -webkit-backdrop-filter: blur(5px); /* 兼容 Safari 瀏覽器 */
+  gap: 60px; /* 控制 navbar-left 和 nav-links 之間的距離 */
+}
+
+/* 導覽列左側部分 */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex; /* 讓 Logo 圖片和文字容器水平排列 */
+  align-items: center;
+  gap: 15px; /* Logo 與文字容器之間的間距 */
+}
+
+.logo {
+  height: 60px; /* 根據新截圖，Logo 似乎比之前高，這裡調整為 60px，你可依據實際大小微調 */
+  width: auto;
+}
+
+.site-titles-container {
+  display: flex; /* 讓兩行文字垂直排列 */
+  flex-direction: column; /* 垂直堆疊 */
+  font-weight: 600; /* 加粗文字 */
+  color: #fff;
+  white-space: nowrap; /* 防止文字換行 */
+}
+
+.site-title-line1 {
+  font-size: 1.2em; /* 第一行文字大小 */
+}
+
+.site-title-line2 {
+  font-size: 0.9em; /* 第二行文字大小略小 */
+  opacity: 0.7; /* 稍微透明一點 */
+}
+
+/* 導覽列中間的連結部分 */
+.nav-links {
+  display: flex; /* 讓導航連結水平排列 */
+  gap: 30px; /* 連結之間有 30px 的間距 */
+}
+
+.nav-links li a {
+  color: #fff; /* 導航連結文字顏色 */
+  font-size: 1.1em;
+  padding: 5px 0; /* 讓連結有小小的點擊區域 */
+  transition: color 0.3s ease; /* 平滑過渡效果 */
+  white-space: nowrap; /* 防止連結文字換行 */
+}
+
+.nav-links li a:hover {
+  color: #a4defa; /* 鼠標懸停時變色 */
+}
+
+/* 導覽列右側部分 - 搜尋框和漢堡選單容器 */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* 讓這個元素被推到最右側 */
+  gap: 20px; /* 搜尋框和漢堡選單之間的間距 */
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  /* 桌面版：始終為白色背景和金色邊框 */
+  background-color: #fff; /* 白色背景 */
+  border: 1px solid #ffd700; /* 金色邊框 */
+  border-radius: 50px;
+  padding: 8px 15px; /* 桌面版：保持固定內邊距 */
+  width: 200px; /* 桌面版：保持固定寬度 */
+  transition: all 0.3s ease-in-out; /* 僅用於 hover 或 focus 的視覺效果 */
+  overflow: hidden; /* 保持這個，以防萬一內容溢出 */
+  justify-content: flex-start; /* 內容始終靠左 */
+}
+.search-box:hover {
+  border-color: #e6c200; /* 鼠標懸停時邊框顏色稍微加深 */
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5); /* 鼠標懸停時添加陰影 */
+}
+/* 搜尋圖片 (放大鏡圖示) 樣式 */
+.search-image {
+  width: 20px;
+  height: 20px;
+  /* 當背景是白色時，放大鏡圖示可能需要是深色。如果你的圖示本身是深色，移除 filter: invert(1); */
+  filter: invert(0); /* 移除反轉，讓圖示保持其原色 (例如黑色) */
+  margin-right: 10px; /* 桌面版：圖示與輸入框之間的間距 */
+  flex-shrink: 0;
+}
+/* 搜尋輸入框樣式 (桌面版) */
+.search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  /* 輸入文字顏色改為深色，以配合白色背景 */
+  color: #1c2a50; /* 深藍色文字 */
+  padding: 5px 0; /* 調整內邊距，避免與 search-box 的 padding 重複 */
+  flex-grow: 1; /* 佔據剩餘空間 */
+  font-size: 1em;
+  width: auto; /* 桌面版：始終顯示並自動調整寬度 */
+  opacity: 1; /* 桌面版：始終完全顯示 */
+  /* 移除 margin-left: 0; 因為 search-image 已經有 margin-right */
+}
+/* 提示文字顏色 */
+.search-input::placeholder {
+  /* 提示文字顏色改為較淺的深色，以配合白色背景 */
+  color: #777; /* 灰色提示文字 */
+}
+/* 漢堡選單按鈕樣式 */
+.hamburger-menu {
+  display: none; /* 桌面版默認隱藏 */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001; /* 確保在導航連結彈出時在最上層 */
+}
+
+.hamburger-menu .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 漢堡選單打開時的動畫 (JS 會添加 'open' class) */
+.hamburger-menu.open .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.open .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* 確保內容不會被導覽列覆蓋 */
+main {
+  padding-top: 100px; /* 這裡的值請根據導覽列的實際高度微調，確保內容不被遮擋 */
+}
+
+/* 大圖展示區 (Hero Section) 樣式 */
+.hero-section {
+  position: relative;
+  height: 90vh; /* 設定高度為視窗高度的 90% */
+  background-image: url("image/main_photo.png"); /* 你的大圖背景圖片路徑 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 2;
+  text-align: left;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.main-title-row {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0.5vh;
+}
+
+.main-title-image {
+  height: auto;
+}
+
+.hero-small-icon {
+  height: auto;
+  position: relative;
+}
+
+.subtitle-image {
+  height: auto;
+}
+
+/* 右下角「觀看動畫」按鈕樣式 */
+.view-animation-btn {
+  position: absolute;
+  bottom: 30px;
+  right: 5%;
+  z-index: 3;
+  background: none;
+  color: #fff; /* 保持白色文字 */
+  padding: 0;
+  border: none;
+  font-size: 1em;
+  text-decoration: underline;
+  transition: none; /* 移除平滑過渡效果 */
+  cursor: pointer;
+}
+
+.view-animation-btn:hover {
+  color: #fff; /* 懸停時也保持白色文字 */
+  opacity: 1; /* 懸停時也保持完全不透明 */
+  text-decoration: underline; /* 保持下劃線，如果不需要也可以移除 */
+}
+
+/* 通用區塊標題樣式 */
+.section-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+
+/* 角色介紹區塊 (Character Section) 樣式 */
+.character-section {
+  background-color: #1c2a50;
+  padding: 50px 0;
+}
+
+.character-container {
+  display: flex;
+  align-items: center;
+  max-width: 1400px; /* 整個內容的最大寬度 */
+  margin: 0 auto;
+  gap: 50px;
+  /* 這裡不再設置 padding，讓它在 Media Query 中精確控制 */
+}
+
+.character-left {
+  flex: 2;
+  /* 這裡也不再設置 padding-left: 0; 在 Media Query 中處理 */
+}
+
+.character-main-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  /* 這裡不設置 margin-left: 0; 在 Media Query 中處理，以確保在不同尺寸下的行為一致 */
+}
+
+.character-right {
+  flex: 1;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.character-top-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 7rem; /* 將 30px 改為你希望的更大值，例如 50px */
+}
+
+.element-icon {
+  width: auto; /* 寬度自動以保持比例 */
+  object-fit: contain;
+  position: relative;
+}
+
+.character-title-and-stars {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.character-title-and-stars h3 {
+  /* corrected selector */
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.five-stars-img {
+  width: 100%; /* 響應式縮放 */
+  height: auto;
+  display: block;
+}
+
+/* 將 .character-details-icons 的網格佈局調整為適用於顯示圖片本身 */
+.character-details-icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 保持三列網格布局 */
+  gap: 20px; /* 圖片之間的間距 */
+  margin-bottom: 20px;
+  justify-items: center; /* 讓網格項目在各自的網格單元格內水平居中 */
+  align-items: center; /* 讓網格項目在各自的網格單元格內垂直居中 */
+}
+
+/* 移除 .detail-icon-item 的圓形樣式和固定尺寸，讓它只作為圖片的容器 */
+.detail-icon-item {
+  background-color: transparent; /* 背景色改為透明 */
+  border-radius: 0; /* 移除圓角 */
+  overflow: visible; /* 允許內容溢出，確保圖片完整顯示 */
+  width: auto; /* 寬度自動，由圖片本身決定 */
+  height: auto; /* 高度自動，由圖片本身決定 */
+  max-width: 120px; /* 設置單個圖片的最大寬度，你可根據實際需求調整 */
+}
+
+/* 調整 .detail-icon 的樣式，確保圖片完整顯示且不受容器的圓形限制 */
+.detail-icon {
+  width: 100%; /* 圖片佔滿其父容器（detail-icon-item）的寬度 */
+  height: auto; /* 高度自動等比例縮放 */
+  object-fit: contain; /* 確保圖片完整顯示，而不是裁剪 */
+  border-radius: 0; /* 移除圓角 */
+  display: block; /* 確保圖片是塊級元素 */
+}
+/* style.css (在任何 Media Query 之外) */
+
+/* 影片彈出視窗 (Modal) 的基本樣式 */
+.modal {
+  display: none; /* 預設隱藏 */
+  position: fixed; /* 固定定位，覆蓋整個視窗 */
+  z-index: 9999; /* 確保在所有內容之上 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* 如果內容超出視窗，允許滾動 */
+  background-color: rgba(0, 0, 0, 0.8); /* 半透明黑色背景遮罩 */
+  justify-content: center; /* 使用 flexbox 居中內容 */
+  align-items: center; /* 使用 flexbox 居中內容 */
+  animation: fadeIn 0.3s forwards; /* 淡入動畫 */
+}
+
+/* 彈出視窗內容區塊 */
+.modal-content {
+  background-color: #fefefe; /* 內容背景色，可以根據主題調整 */
+  padding: 0; /* 移除默認內邊距 */
+  border: 1px solid #888;
+  width: 90%; /* 內容寬度 */
+  max-width: 800px; /* 最大寬度，防止過寬 */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  position: relative; /* 為了關閉按鈕的定位 */
+  transform: translateY(-50px); /* 初始位置稍微偏上，配合動畫 */
+  animation: slideIn 0.3s forwards; /* 滑入動畫 */
+}
+
+/* 關閉按鈕 */
+.close-button {
+  color: #fff; /* 關閉按鈕顏色 */
+  font-size: 40px; /* 字體大小 */
+  font-weight: bold;
+  position: absolute; /* 絕對定位 */
+  top: -45px; /* 定位在 modal-content 的上方 */
+  right: 0;
+  cursor: pointer; /* 鼠標懸停時顯示為手型，表示可點擊 */
+  z-index: 10000; /* 確保關閉按鈕在最上層 */
+  /* **檢查這裡是否有 pointer-events: none; 或 display: none; !important; ** */
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #aaa;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 影片容器 - 響應式影片比例 (16:9 比例) */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 比例 (高/寬 = 9/16 = 0.5625) */
+  height: 0;
+  overflow: hidden;
+  background-color: #000; /* 影片載入前的背景 */
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Modal 淡入動畫 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    display: flex;
+  } /* display: flex 放在動畫結束時，確保隱藏時是 none */
+}
+
+/* Modal 滑入動畫 */
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal 淡出動畫 */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    display: flex;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* 如果需要，在 Media Query 中調整 modal-content 的寬度 */
+@media (max-width: 728px) {
+  .modal-content {
+    width: 95%; /* 手機版可以更寬一點 */
+  }
+  .close-button {
+    font-size: 30px; /* 手機版關閉按鈕小一點 */
+    top: -35px;
+    right: 5px; /* 調整位置 */
+  }
+}
+/* 光錐介紹區塊 (Light Cone Section) 樣式 */
+.light-cone-section {
+  background-image: linear-gradient(
+    to bottom,
+    #1c2a50 0%,
+    #1c2a50 80%,
+    /* 保持原色直到 80% 的位置 */ #0f172a 100%
+      /* 將這個顏色調整為接近下一區塊圖片的暗部顏色 */
+  );
+  padding: 50px 0;
+  color: #fff;
+  /* min-height: 500px; */
+}
+
+.light-cone-container {
+  display: flex;
+  align-items: center;
+  max-width: 1400px; /* 與 Character Section 保持一致的最大寬度 */
+  margin: 0 auto;
+  gap: 50px; /* 內容與圖片之間的間距 */
+  padding: 0 5%; /* 左右內邊距 */
+}
+
+.light-cone-left {
+  flex: 1; /* 左側內容佔用可用空間 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 內容靠左對齊 */
+}
+
+.light-cone-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5em; /* 根據圖片，文字較大 */
+  font-weight: 700; /* 粗體 */
+  margin-bottom: 30px;
+  white-space: nowrap; /* 防止文字換行 */
+}
+
+.light-cone-stats-table {
+  width: 100%;
+  max-width: 500px; /* 這個 max-width 在桌面版是好的，但手機版可能需要被覆蓋 */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.light-cone-stats-table table {
+  width: 100%;
+  border-collapse: collapse; /* 邊框合併 */
+}
+
+.light-cone-stats-table tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* 行之間的分隔線 */
+}
+
+.light-cone-stats-table tr:last-child {
+  border-bottom: none; /* 最後一行沒有下邊框 */
+}
+
+.light-cone-stats-table td {
+  padding: clamp(8px, 1.5vw, 15px) clamp(10px, 2vw, 20px); /* 調整 padding 範圍 */
+  text-align: left;
+  font-size: clamp(0.8em, 1.2vw, 1.1em); /* 調整字體大小範圍 */
+  font-weight: 500;
+}
+
+.light-cone-stats-table td:first-child {
+  font-weight: 600; /* 第一列文字加粗 */
+  color: rgba(255, 255, 255, 0.8); /* 稍微變暗的顏色 */
+}
+
+.light-cone-stats-table td:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05); /* 隔行變色 */
+}
+
+.light-cone-stats-table .rarity-stars {
+  height: 20px; /* 星星圖片高度 */
+  width: auto;
+  display: inline-block; /* 讓圖片與文字同行 */
+  vertical-align: middle; /* 垂直居中 */
+  margin-top: -3px; /* 微調對齊 */
+}
+
+.light-cone-right {
+  flex: 1; /* 右側圖片佔用可用空間 */
+  display: flex;
+  justify-content: center; /* 圖片居中 */
+  align-items: center;
+}
+
+.light-cone-main-img {
+  max-width: 100%; /* 讓圖片能縮放到其父容器的100% */
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transform: rotate(10deg);
+  filter: drop-shadow(0 0 20px rgba(164, 222, 250, 0.3));
+  border-radius: 50px;
+  /* 這裡可以選擇性地加上一個預設的 width 或一個更彈性的 max-width */
+  width: min(300px, 75vw); /* 圖片最大為500px，或視窗寬度的90%，取最小值 */
+}
+
+/* 畫廊區塊 (Gallery Section) 樣式 - 配合 JS 修改 */
+.gallery-section {
+  position: relative;
+  padding: 100px 0;
+  color: #fff;
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* 確保背景圖不受影響 */
+}
+
+.gallery-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./image/last_bgc.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(10px);
+  transform: scale(1.02);
+  z-index: -1;
+}
+
+/* 輪播容器樣式 */
+.carousel-container {
+  position: relative; /* 讓內部絕對定位的按鈕可以參考這個容器 */
+  width: 90%; /* 控制輪播組件的整體寬度 */
+  max-width: 1200px;
+  margin: 50px auto;
+  overflow: hidden; /* 隱藏溢出，只顯示 track-wrapper 內的內容 */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  /* background-color: rgba(0, 0, 0, 0.2); /* 可選：加個半透明背景看效果 */
+}
+
+/* 輪播軌道外層包裝器 - 負責裁剪 */
+.carousel-track-wrapper {
+  overflow: hidden; /* 確保只有中間部分可見 */
+  width: 100%; /* 佔據 carousel-container 的寬度 */
+  position: relative; /* 讓 track 可以相對於它定位 */
+}
+
+/* 輪播軌道樣式 - 由 JS 控制平移 */
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* 平滑過渡動畫 */
+  /* 移除或註解掉以下兩行，讓 JS 完全控制定位 */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+/* 畫廊區塊 (Gallery Section) 樣式 - 配合 JS 修改 */
+.gallery-section {
+  /* ... 保持不變 ... */
+  overflow: hidden; /* 防止內容溢出 */
+}
+
+/* 輪播圖片單元樣式 */
+.carousel-item {
+  flex-shrink: 0;
+  width: 30%; /* 桌面版：圖片佔容器的 30% */
+  margin: 0 1%; /* 圖片之間的間距 */
+  height: auto;
+  object-fit: contain;
+  max-height: 500px; /* 設置一個最大高度 */
+  border-radius: 10px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out,
+    box-shadow 0.5s ease-in-out;
+  cursor: pointer;
+  /* 確保初始狀態的圖片寬度是被正確計算的，避免預設的flex-basis影響 */
+  flex-basis: 30%; /* 讓 flex 項目基於這個寬度 */
+  max-width: 30%; /* 確保不會超過這個寬度 */
+}
+
+/* 中間活動圖片的樣式 (將由 JS 添加 active class) */
+.carousel-item.active {
+  width: 40%; /* 中間圖片可以更大一點 */
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(164, 222, 250, 0.7);
+  z-index: 10;
+  /* 確保 active 狀態的 flex-basis 也被更新 */
+  flex-basis: 40%;
+  max-width: 40%;
+}
+
+/* 輪播按鈕樣式 */
+.carousel-button {
+  /* ... 其他樣式 ... */
+  display: none; /* 隱藏箭頭按鈕 */
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+/* Footer 樣式 */
+.footer {
+  background-color: #1c2a50; /* 與 Navbar 相似的深藍色 */
+  color: #fff;
+  padding: 40px 5%; /* 上下內邊距 40px，左右 5% */
+  display: flex;
+  flex-direction: column; /* 垂直堆疊，以便底部版權信息獨立 */
+  align-items: center; /* 讓整體內容居中 */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* 頂部淺色邊框 */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* 子元素之間平均分佈空間 */
+  align-items: flex-start; /* **保持這個：讓主要區塊頂部對齊** */
+  width: 100%;
+  max-width: 1400px; /* 限制最大寬度與主內容區塊一致 */
+  margin-bottom: 30px; /* 與底部版權信息的間距 */
+  flex-wrap: wrap; /* 允許在小螢幕上換行 */
+}
+
+/* 左側佔位符 - 在桌面版讓中間內容可以居中，同時右側對齊 */
+.footer-left-placeholder {
+  flex: 1; /* 佔據與右側相同的空間 */
+  min-width: 150px;
+}
+
+/* 中間導航連結 */
+.footer-center {
+  flex: 2; /* 佔據更多空間，給水平排列的連結更多地方 */
+  display: flex;
+  /* **新增或修改：確保 .footer-center 內部內容從頂部開始** */
+  align-items: flex-start;
+  justify-content: center; /* 連結列表居中 */
+  min-width: 450px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: row; /* 桌面版水平排列 */
+  gap: 30px; /* 連結之間更大的水平間距 */
+  /* **修改：將 align-items: center; 改為 flex-start; 確保每個連結項目的內容從頂部開始** */
+  align-items: flex-start;
+  list-style: none; /* 移除列表點 */
+  padding: 0; /* 移除默認內邊距 */
+  margin: 0; /* 移除默認外邊距 */
+  flex-wrap: wrap; /* 如果空間不足允許換行 */
+  justify-content: center; /* 在換行時也能居中 */
+}
+
+.footer-link-item {
+  display: flex;
+  align-items: center; /* 這個是針對連結文字和箭頭的垂直居中，保持不變 */
+  color: #fff;
+  text-decoration: underline; /* 連結文字下劃線 */
+  font-size: 1em;
+  transition: opacity 0.3s ease;
+  white-space: nowrap; /* 防止連結文字換行 */
+}
+
+.footer-link-item:hover {
+  opacity: 0.8;
+}
+
+.footer-arrow-icon {
+  height: 12px; /* 箭頭圖示大小 */
+  width: auto;
+  margin-left: 8px; /* 箭頭與文字間距 */
+  vertical-align: middle;
+}
+
+/* 右側遊戲公司 LOGO */
+.footer-right {
+  flex: 1; /* 佔據一定空間 */
+  display: flex;
+  justify-content: flex-end; /* 圖片靠右對齊 */
+  min-width: 150px; /* 與左側佔位符對稱 */
+  /* **新增或修改：確保 .footer-right 內部內容從頂部開始** */
+  align-items: flex-start;
+}
+
+.footer-right-image {
+  max-height: 100px; /* 右側圖片的最大高度 */
+  width: auto;
+  object-fit: contain;
+}
+
+/* 底部版權信息 */
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  font-size: 0.85em;
+  opacity: 0.8;
+  margin-top: 20px; /* 與上方內容的間距 */
+  padding-top: 15px; /* 自身內邊距 */
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* 輕微分隔線 */
+}
+.back-to-top-button {
+  position: fixed;
+  bottom: 40px; /* 往上移，可以根據需要調整，例如 40px, 50px */
+  right: 40px; /* 往左移，可以根據需要調整，例如 40px, 50px */
+
+  /* 新的樣式設定 */
+  background-color: #6f3893; /* 背景顏色：你指定的色號 */
+  color: #fff; /* 文字顏色：白色 */
+  font-weight: bold; /* 文字粗體 */
+  padding: 15px; /* 調整內邊距，讓圓形更飽滿 */
+  border: 3px solid #ffffc1; /* 邊框寬度 5px，顏色你指定的色號 */
+  border-radius: 50%; /* 關鍵：設定為 50% 即可變為圓形 */
+  width: 60px; /* 圓形按鈕的寬度 */
+  height: 60px; /* 圓形按鈕的高度，確保與寬度相同以維持圓形 */
+  display: flex; /* 使用 flexbox 讓文字在按鈕中置中 */
+  justify-content: center; /* 水平置中 */
+  align-items: center; /* 垂直置中 */
+  font-size: 1.3rem; /* 調整字體大小，如果文字太小或太大可以調整這個值 */
+
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, background-color 0.2s ease; /* 增加背景顏色過渡，讓 hover 有效果 */
+  z-index: 1000;
+}
+/* 鼠標懸停效果 (可選) */
+.back-to-top-button:hover {
+  background-color: #5a2e7a; /* 鼠標懸停時，顏色稍微變深 */
+}
+
+.back-to-top-button.show {
+  opacity: 1;
+}
+/* Media Queries for Light Cone Section */
+
+/* 網頁版 (min-width: 729px) */
+@media screen and (min-width: 729px) {
+  .light-cone-container {
+    flex-direction: row; /* 水平排列 */
+    justify-content: space-between; /* 內容與圖片左右分開 */
+    padding: 0 5%; /* 左右間距 */
+  }
+
+  .light-cone-left {
+    padding-right: 50px; /* 左側內容與圖片的間距 */
+  }
+
+  .light-cone-main-img {
+    max-width: 500px; /* 網頁版圖片最大寬度 */
+    margin-right: 0; /* 確保不被其他 margin 推開 */
+  }
+}
+
+/* 手機版 (max-width: 728px) */
+@media screen and (max-width: 728px) {
+  .light-cone-container {
+    flex-direction: column; /* 垂直排列 */
+    padding: 0 20px; /* 手機版左右內邊距 */
+    gap: 30px; /* 縮小間距 */
+  }
+
+  .light-cone-left {
+    align-items: center; /* 內容居中 */
+    padding-right: 0;
+  }
+
+  .light-cone-subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(
+      1.5em,
+      5vw,
+      2.5em
+    ); /* 調整 clamp 範圍，讓 vw 更具影響力，最小 1.5em */
+    font-weight: 700;
+    margin-bottom: 30px;
+    white-space: nowrap; /* 暫時保持不換行，如果重疊再考慮移除 */
+    text-align: left; /* 確保在 PC 視圖下靠左 */
+  }
+
+  .light-cone-stats-table {
+    width: 95%; /* 表格寬度調整 */
+  }
+
+  .light-cone-stats-table td {
+    padding: clamp(10px, 2vw, 15px) clamp(15px, 3vw, 20px); /* 彈性調整內邊距 */
+    text-align: left;
+    font-size: clamp(0.9em, 1.2vw, 1.1em); /* 彈性調整字體大小 */
+    font-weight: 500;
+  }
+
+  .light-cone-stats-table .rarity-stars {
+    height: 16px; /* 手機版星星圖片縮小 */
+  }
+
+  .light-cone-right {
+    width: 100%; /* 圖片佔滿寬度 */
+  }
+
+  .light-cone-main-img {
+    max-width: 400px; /* 縮小最大寬度，您可以根據喜好調整這個值 */
+    height: auto;
+    display: block;
+    object-fit: contain;
+    transform: rotate(10deg); /* 根據圖片，稍微傾斜 */
+    filter: drop-shadow(0 0 20px rgba(164, 222, 250, 0.3)); /* 發光效果 */
+    border-radius: 25px; /* 新增圓角 */
+  }
+}
+
+/* --- Media Queries (響應式調整) --- */
+
+/* 設定最小螢幕尺寸 (網頁版) - 螢幕寬度大於等於 729px */
+@media screen and (min-width: 729px) {
+  /* Hero Section 的網頁版樣式 */
+  .hero-content {
+    top: 15vh; /* 調整垂直位置 */
+    left: 8vw; /* 調整水平位置 */
+  }
+  .main-title-row {
+    gap: 1.5vw;
+    margin-bottom: 0.5vh;
+  }
+  .main-title-image {
+    width: 30vw; /* 遐蝶圖片的寬度 */
+    max-width: 500px; /* 最大寬度限制 */
+  }
+  .hero-small-icon {
+    width: 5vw; /* 小圖示的寬度 */
+    max-width: 50px;
+    top: -0.5vh; /* 微調 */
+  }
+  .subtitle-image {
+    width: 30vw; /* Castorice 圖片的寬度 */
+    max-width: 500px;
+  }
+  .view-animation-btn {
+    font-size: 1em;
+    bottom: 30px;
+    right: 5%;
+  }
+
+  /* Character Section 的網頁版樣式 */
+  .character-container {
+    flex-direction: row; /* 水平排列 */
+    /* **修正：取消這裡的 padding，讓左側圖片可以貼齊視窗左邊緣（在 max-width 內）** */
+    padding: 0;
+  }
+  /* **新增/修正：確保 character-left 沒有會推開圖片的內外邊距** */
+  .character-left {
+    flex: 2;
+    padding-left: 0;
+    margin-left: 0;
+  }
+  /* **修正：確保 character-main-img 貼齊左側** */
+  .character-main-img {
+    margin-left: 0; /* 確保圖片不會被推開 */
+  }
+  /* **修正：右側內容區域加上左右內邊距，以保持與整體設計的對齊和間距** */
+  .character-right {
+    padding-left: 20px; /* 右側內容左邊距 */
+    padding-right: 20px; /* 右側內容右邊距 */
+    align-items: flex-start; /* 確保內容靠左對齊 */
+  }
+
+  /* **修正：以下元素改用 vw 或 rem 單位，確保它們隨頁面縮放，並讓文字與圖示大小協調** */
+  .character-title-and-stars h3 {
+    font-size: clamp(
+      35px,
+      4.5vw,
+      45px
+    ); /* 調整為：最小 40px，偏好 4.5vw，最大 75px */
+    white-space: nowrap;
+  }
+  .element-icon {
+    height: clamp(40px, 4.5vw, 75px); /* 與 h3 字體大小保持一致的縮放範圍 */
+  }
+  .five-stars-img {
+    /* 調整為 vw 單位，使其隨視窗寬度縮放 */
+    max-width: clamp(80px, 8vw, 150px); /* 縮放範圍從 80px 到 150px */
+  }
+  .detail-icon-item {
+    max-width: 120px; /* 網頁版單個圖片的最大寬度 */
+  }
+  .character-details-icons {
+    grid-template-columns: repeat(3, 1fr); /* 網頁版三列 */
+  }
+  .light-cone-container {
+    flex-direction: row; /* 水平排列 */
+    justify-content: space-between; /* 內容與圖片左右分開 */
+    padding: 0 5%; /* 左右間距 */
+  }
+
+  .light-cone-left {
+    padding-right: 50px; /* 左側內容與圖片的間距 */
+  }
+
+  .light-cone-main-img {
+    max-width: 500px; /* 網頁版圖片的最大寬度，您可以調整這個值 */
+    width: 100%; /* 確保它能佔滿父容器的可用空間 */
+    margin-right: 0;
+    border-radius: 50px; /* 確保圓角存在 */
+  }
+}
+
+/* 設定最大螢幕尺寸 (手機版) - 螢幕寬度小於等於 728px */
+@media screen and (max-width: 728px) {
+  /* Hero Section 的手機版樣式 */
+  .hero-content {
+    left: 5%;
+    top: 25%;
+    transform: translateY(0);
+    width: 90%; /* 新增：讓 hero-content 佔據 90% 的寬度 */
+    /* 確保其內容（圖片）能夠正確縮放 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .main-title-row {
+    gap: 1vw; /* 縮小間距 */
+    margin-bottom: 0.2vh; /* 縮小間距 */
+  }
+  .main-title-image {
+    max-width: 100%; /* 這裡可以調整為你希望的大小，例如 95% 或 100% */
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+  .hero-small-icon {
+    width: 7vw; /* 手機版小圖示大小 */
+    max-width: 25px;
+    top: -1.5vh;
+  }
+  .subtitle-image {
+    max-width: 100%; /* 限制最大寬度為父容器的 80% */
+    height: auto; /* 保持高度自動，以維持圖片原始比例 */
+    object-fit: contain; /* 關鍵：確保圖片在容器內完整顯示，不變形 */
+    margin-top: 10px; /* 調整與主標題的間距 */
+  }
+
+  .view-animation-btn {
+    font-size: 0.8em;
+    bottom: 15px;
+    right: 2%;
+    color: #be8bff;
+    background-color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bolder;
+  }
+  .view-animation-btn:hover {
+    background-color: #be8bff;
+    color: #fff;
+  }
+
+  /* Character Section 的手機版樣式 */
+  .section-title {
+    font-size: 2.2em;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  .character-container {
+    flex-direction: column; /* 垂直排列 */
+    gap: 30px;
+    padding: 0 20px; /* 給整體容器加上左右內邊距 */
+  }
+  .character-left {
+    flex: none;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* 圖片在手機版居中 */
+  }
+  .character-main-img {
+    max-width: 80%; /* 圖片縮小 */
+    margin-left: auto;
+    margin-right: auto; /* 確保圖片在 flex 容器中居中 */
+  }
+  .character-right {
+    flex: none;
+    width: 100%;
+    padding: 0 20px; /* 保持內容的左右內邊距 */
+    align-items: center; /* 內容居中對齊 */
+  }
+  .character-top-info {
+    flex-direction: column; /* 屬性圖示和標題星級上下排列 */
+    align-items: center; /* 居中 */
+    gap: 10px; /* 縮小間距 */
+  }
+  .element-icon {
+    height: 2.5em; /* 手機版屬性圖示高度，保持 em 單位 */
+  }
+  .character-title-and-stars {
+    align-items: center; /* 在手機版也居中 */
+  }
+  .character-title-and-stars h3 {
+    /* corrected selector */
+    font-size: 2.5em; /* 手機版遐蝶文字大小，保持 em 單位 */
+    white-space: normal; /* 允許換行，避免過長溢出 */
+    text-align: center; /* 文字居中 */
+  }
+  .five-stars-img {
+    max-width: 7.5rem; /* 手機版五星圖示最大寬度，保持 rem 單位 */
+  }
+  .character-details-icons {
+    grid-template-columns: repeat(2, 1fr); /* 手機版顯示兩列 */
+    gap: 15px; /* 手機版間距 */
+  }
+  .detail-icon-item {
+    max-width: 100px; /* 手機版單個圖片的最大寬度，相對縮小 */
+  }
+  .light-cone-container {
+    flex-direction: column; /* 垂直排列 */
+    padding: 0 20px; /* 手機版左右內邊距 */
+    gap: 30px; /* 縮小間距 */
+  }
+
+  .light-cone-left {
+    align-items: center; /* 內容居中 */
+    padding-right: 0;
+  }
+
+  .light-cone-subtitle {
+    font-size: clamp(1.5em, 6vw, 2em); /* 手機版可以再縮小範圍，讓字體更小 */
+    white-space: normal; /* 在手機版允許文字換行，防止重疊 */
+    text-align: center; /* 手機版文字居中 */
+  }
+
+  .light-cone-stats-table {
+    width: 100%;
+    max-width: none; /* 移除 max-width 限制，讓 width: 95% 完全生效 */
+    margin: 0 auto; /* 確保表格在手機版居中 */
+  }
+
+  .light-cone-stats-table td {
+    padding: 8px 12px; /* 手機版固定較小的 padding */
+    font-size: 0.85em; /* 手機版固定較小的字體大小 */
+  }
+
+  .light-cone-stats-table .rarity-stars {
+    height: 16px; /* 手機版星星圖片縮小 */
+  }
+
+  .light-cone-right {
+    width: 100%; /* 圖片佔滿寬度 */
+  }
+
+  .light-cone-main-img {
+    max-width: 300px; /* 手機版圖片修改後的最大寬度，您可以根據喜好調整 */
+    margin-top: 20px; /* 圖片與上方內容的間距 */
+    border-radius: 50px; /* 新增圓角 */
+  }
+
+  /* 手機版輪播圖片樣式 */
+  .carousel-item {
+    width: 60%; /* 手機版：圖片佔容器的 60%，左右能看到更多 */
+    /* height: 300px; /* 手機版高度，這裡也可以考慮移除，或設為 max-height */
+    max-height: 350px; /* 手機版圖片的最大高度 */
+    margin: 0 2%; /* 間距調整 */
+  }
+
+  .carousel-item.active {
+    width: 70%; /* 手機版中間圖片 */
+  }
+
+  .carousel-button {
+    font-size: 1.5em;
+    padding: 10px 5px;
+  }
+  .footer {
+    padding: 30px 20px; /* 調整手機版內邊距 */
+  }
+  .footer-container {
+    flex-direction: row; /* 在手機版仍然保持水平排列 */
+    flex-wrap: wrap; /* 允許換行 */
+    align-items: flex-start; /* **保持這個：頂部對齊** */
+    gap: 20px; /* 項目之間間距 */
+  }
+
+  .footer-left-placeholder {
+    display: none; /* 手機版不需要左側佔位符 */
+  }
+
+  .footer-center {
+    order: 2; /* 讓連結在 LOGO 下方 */
+    flex: none; /* 移除 flex 比例 */
+    width: 100%; /* 佔滿寬度 */
+    min-width: unset;
+    justify-content: flex-start; /* 連結靠左對齊 */
+    align-items: flex-start; /* **新增：確保手機版連結內容也從頂部開始** */
+  }
+
+  .footer-links {
+    flex-direction: column; /* 連結垂直堆疊 */
+    align-items: flex-start; /* 連結文字靠左對齊 */
+    width: 100%; /* 連結列表佔滿寬度 */
+    gap: 10px; /* 垂直間距 */
+  }
+  .footer-bottom {
+    font-size: 0.75em;
+    padding: 0 20px;
+    margin-top: 30px; /* 增加與上方內容的間距 */
+  }
+  /* 導覽列整體調整 */
+  .navbar {
+    padding: 15px 4%; /* 調整左右內邊距 */
+    justify-content: space-between; /* 讓 Logo 和右側按鈕左右對齊 */
+    gap: 0; /* 移除桌面版 navbar-left 和 nav-links 之間的間距 */
+  }
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* 搜尋 icon 和漢堡選單之間的間距 */
+  }
+  /* 隱藏桌面版導覽連結 */
+  .nav-links {
+    display: flex; /* **關鍵！讓它顯示** */
+    flex-direction: column; /* 垂直排列 */
+    position: fixed; /* 讓選單浮動在內容上方 */
+    top: 0; /* 從頂部開始 */
+    right: -100%; /* **關鍵！初始時移出視窗右側** */
+    width: 70%; /* 選單寬度，可調整 */
+    height: 100vh; /* 選單高度與視窗高度相同 */
+    background-color: rgba(28, 42, 80, 0.95); /* 半透明背景，可調整 */
+    padding-top: 100px; /* 給頂部 Logo 預留空間 */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3); /* 添加陰影 */
+    transition: right 0.3s ease-in-out; /* **關鍵！滑出動畫效果** */
+    z-index: 999; /* 確保在其他內容之上，但在漢堡按鈕之下 */
+    align-items: flex-start; /* 讓連結靠左對齊 */
+  }
+
+  /* 當 nav-links 被打開時的樣式 (由 JS 添加 .open class) */
+  .nav-links.open {
+    right: 0; /* **關鍵！滑入視窗** */
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-links li a {
+    padding: 15px 20px;
+    font-size: 1.2em;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: none;
+  }
+
+  /* ... 其他手機版導覽連結內部樣式 ... */
+
+  /* 顯示漢堡選單按鈕 */
+  .hamburger-menu {
+    display: flex; /* **關鍵！讓它顯示** */
+    position: relative;
+    z-index: 1000;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 漢堡按鈕線條的樣式 */
+  .hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 4px auto;
+    background-color: #fff; /* **關鍵！確保顏色是白色的** */
+    transition: all 0.3s ease-in-out;
+  }
+  /* 漢堡按鈕線條的動畫 (點擊後變成X) */
+  .hamburger-menu.open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger-menu.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.open .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* 調整搜尋框容器的樣式 */
+  .search-box {
+    /* 初始狀態（收起時）：只是一個放大鏡 Icon，無邊框，無背景 */
+    border: none;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    width: 40px; /* 初始寬度，只顯示圖示 */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  /* 手機版：當 search-box 被激活時的樣式 (展開時) */
+  .search-box.active {
+    width: 200px; /* 手機版展開後的寬度，可自行調整 */
+    /* 展開時的背景色和邊框 */
+    background-color: #fff; /* 白色背景 */
+    border-radius: 20px;
+    padding: 5px 15px;
+    justify-content: flex-start;
+    border: 1px solid #ffd700; /* 金色邊框 */
+  }
+  /* 手機版：搜尋輸入框的樣式 */
+  .search-input {
+    display: block; /* 讓輸入框能夠參與 Flexbox 佈局 */
+    /* 初始狀態：隱藏 */
+    width: 0;
+    opacity: 0;
+    margin-left: 0;
+    transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out,
+      margin-left 0.3s ease-in-out;
+    /* 輸入文字顏色改為深色，以配合白色背景 */
+    color: #1c2a50; /* 深藍色文字 */
+  }
+
+  /* 手機版：當 search-box 激活時，顯示輸入框 */
+  .search-box.active .search-input {
+    width: 140px; /* 展開後的輸入框寬度 */
+    opacity: 1;
+    margin-left: 8px; /* 圖標與輸入框的間距 */
+  }
+
+  /* 隱藏搜尋輸入框 */
+  .search-box .search-input {
+    display: none;
+  }
+
+  /* 顯示並調整放大鏡圖片 Icon 的樣式 */
+  .search-box .search-image {
+    display: block;
+    width: 25px;
+    height: 25px;
+    /* 當背景是白色時，放大鏡圖示可能需要是深色。如果你的圖示本身是深色，移除 filter: invert(1); */
+    filter: invert(0); /* 移除反轉，讓圖示保持其原色 (例如黑色) */
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  /* 提示文字顏色 */
+  .search-input::placeholder {
+    /* 提示文字顏色改為較淺的深色，以配合白色背景 */
+    color: #777; /* 灰色提示文字 */
+  }
+
+  /* 調整 Logo 大小和標題大小 */
+  .logo {
+    height: 45px; /* 手機版 Logo 縮小 */
+  }
+
+  .site-title-line1 {
+    font-size: 1em; /* 調整第一行標題 */
+  }
+
+  .site-title-line2 {
+    font-size: 0.75em; /* 調整第二行標題 */
+  }
+
+  /* 調整主內容的 padding-top，以適應導覽列 */
+  main {
+    padding-top: 80px; /* 根據手機版導覽列高度調整 */
+  }
+
+  /* 英雄區塊的文字位置調整 */
+  .hero-content {
+    left: 5%; /* 調整文字左側位置 */
+    top: 25%; /* 調整文字頂部位置 */
+    transform: translateY(0); /* 移除桌面版的 transform */
+  }
+
+  .main-title-image {
+    max-height: 50px; /* 調整主標題圖片大小 */
+  }
+
+  .subtitle-image {
+    max-height: 30px; /* 調整副標題圖片大小 */
+  }
+}
