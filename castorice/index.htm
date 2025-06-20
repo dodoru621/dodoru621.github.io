@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0",usr-scalable />
+    <title>遐蝶 Castorice</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+  <div class="navbar-left">
+    <a href="#" class="logo-link">
+      <img src="image/logo.png" alt="翁法羅斯英雄紀 Logo" class="logo" />
+      <div class="site-titles-container">
+        <h1 class="site-title-line1">翁法羅斯英雄紀</h1>
+        <p class="site-title-line2">死蔭的仕女</p>
+      </div>
+    </a>
+  </div>
+
+  <ul class="nav-links">
+  <li><a href="#hero">首頁</a></li>
+  <li><a href="#character">角色介紹</a></li>
+  <li><a href="#light-cone">光錐介紹</a></li>
+  <li><a href="#gallery">照片庫</a></li>
+</ul>
+
+  <div class="navbar-right">
+    <div class="search-box">
+      <img src="image/Search.png" alt="搜尋" class="search-image" />
+      <input type="text" placeholder="搜尋更多內容..." class="search-input" />
+    </div>
+
+    <button class="hamburger-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+</nav>
+    </header>
+
+    <main>
+      <section class="hero-section" id="hero">
+        <div class="hero-content">
+          <div class="main-title-row">
+            <img
+              src="image/main_title.png"
+              alt="遐蝶"
+              class="main-title-image"
+            />
+            <img
+              src="image/memory.png"
+              alt="遐蝶旁邊的小圖示"
+              class="hero-small-icon"
+            />
+          </div>
+          <img
+            src="image/main-content.png"
+            alt="Castorice"
+            class="subtitle-image"
+          />
+        </div>
+
+        <a href="#" class="view-animation-btn">觀看動畫</a>
+        <div id="videoModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div class="video-container">
+          <video id="localVideo" controls playsinline>
+            <source src="second_video.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+      </section>
+
+      <section class="character-section" id="character">
+        <h2 class="section-title">角色介紹</h2>
+        <div class="character-container">
+          <div class="character-left">
+            <img
+              src="image/main_self_photo.png"
+              alt="角色插畫"
+              class="character-main-img"
+            />
+          </div>
+          <div class="character-right">
+            <div class="character-top-info">
+              <img
+                src="image/lengzi.png"
+                alt="屬性圖示"
+                class="element-icon"
+              />
+              <div class="character-title-and-stars">
+                <h3>遐蝶 Castorice</h3>
+                <div class="star-rating">
+                  <img
+                    src="image/fivestart.png"
+                    alt="五顆星評級"
+                    class="five-stars-img"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="character-details-icons">
+              <div class="detail-icon-item">
+                <img src="image/1min.png" alt="特寫1" class="detail-icon" />
+              </div>
+              <div class="detail-icon-item">
+                <img src="image/2min.png" alt="特寫2" class="detail-icon" />
+              </div>
+              <div class="detail-icon-item">
+                <img src="image/3min.png" alt="特寫3" class="detail-icon" />
+              </div>
+              <div class="detail-icon-item">
+                <img src="image/4min.png" alt="特寫4" class="detail-icon" />
+              </div>
+              <div class="detail-icon-item">
+                <img src="image/5min.png" alt="特寫5" class="detail-icon" />
+              </div>
+              <div class="detail-icon-item">
+                <img src="image/6min.png" alt="特寫6" class="detail-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="light-cone-section" id="light-cone">
+        <h2 class="section-title">光錐介紹</h2>
+        <div class="light-cone-container">
+          <div class="light-cone-left">
+            <h3 class="light-cone-subtitle">讓告別，更美一些</h3>
+            <div class="light-cone-stats-table">
+              <table>
+                <tr>
+                  <td>命途</td>
+                  <td>記憶</td>
+                  <td>稀有度</td>
+                  <td>
+                    <img
+                      src="image/fivestart.png"
+                      alt="五星稀有度"
+                      class="rarity-stars"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>基礎生命</td>
+                  <td>57</td>
+                  <td>滿級生命</td>
+                  <td>1270</td>
+                </tr>
+                <tr>
+                  <td>基礎攻擊</td>
+                  <td>24</td>
+                  <td>滿級攻擊</td>
+                  <td>529</td>
+                </tr>
+                <tr>
+                  <td>基礎防禦</td>
+                  <td>18</td>
+                  <td>滿級防禦</td>
+                  <td>396</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="light-cone-right">
+            <img
+              src="image/gown.png"
+              alt="光錐圖片"
+              class="light-cone-main-img"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="gallery-section" id="gallery">
+        <h2 class="section-title">照片庫</h2>
+        <div class="carousel-container">
+          <div class="carousel-track-wrapper">
+            <div class="carousel-track">
+              <img
+                src="image/1.jpg"
+                alt="Gallery Image 1"
+                class="carousel-item"
+              />
+              <img
+                src="image/2.jpg"
+                alt="Gallery Image 2"
+                class="carousel-item"
+              />
+              <img
+                src="image/3.jpg"
+                alt="Gallery Image 3"
+                class="carousel-item"
+              />
+              <img
+                src="image/4.jpg"
+                alt="Gallery Image 4"
+                class="carousel-item"
+              />
+              <img
+                src="image/5.jpg"
+                alt="Gallery Image 5"
+                class="carousel-item"
+              />
+              <img
+                src="image/6.jpg"
+                alt="Gallery Image 6"
+                class="carousel-item"
+              />
+            </div>
+          </div>
+          <button class="carousel-button prev">&lt;</button>
+          <button class="carousel-button next">&gt;</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <p><a href="#">觀看遊戲動畫 →</p>
+          <p><a href="#">觀看其他角色介紹 →</p>
+          <p><a href="#">觀看角色實機影片 →</p>
+        </div>
+        <div class="footer-right">
+          <img src="image/cologelogo.png" alt="崩壞：星穹鐵道 Logo" />
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">本網頁為粉絲作品，無任何商業用途</p>
+      </div>
+      <button id="backToTopBtn" class="back-to-top-button">TOP</button>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
